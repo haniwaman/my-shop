@@ -1,0 +1,306 @@
+.c-navigation {
+	display: flex;
+	justify-content: center;
+	padding: 8px 0;
+
+	li {
+		margin-right: 32px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		a {
+			text-decoration: none;
+			transition: all 0.3s ease 0s;
+
+			&:hover {
+				opacity: $opacity;
+			}
+		}
+	}
+}
+
+.c-product-item {
+	border: #fff;
+	padding: 8px;
+	display: inline-block;
+	text-decoration: none;
+
+	&:hover {
+		opacity: $opacity;
+	}
+}
+
+.c-product-item__image {
+	text-align: center;
+
+	img {
+		vertical-align: bottom;
+	}
+}
+
+.c-product-item__body {
+	padding: 8px 0;
+}
+
+.c-product-item__title {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.c-product-item__price {
+	font-size: 13px;
+	margin-top: 2px;
+	text-align: right;
+}
+
+.c-product-item__sold-out {
+	display: inline-block;
+	background: #ddd;
+	color: #fff;
+	font-weight: 700;
+	text-align: center;
+	padding: 2px 12px;
+	border-radius: 3px;
+}
+
+// ブログカード
+.c-blog-card {
+	border: #fff;
+	padding: 8px;
+	display: inline-block;
+	text-decoration: none;
+
+	&:hover {
+		opacity: $opacity;
+	}
+}
+
+.c-blog-card__image {
+	text-align: center;
+
+	img {
+		vertical-align: bottom;
+	}
+}
+
+.c-blog-card__body {
+	padding: 8px 0;
+}
+
+.c-blog-card__title {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.c-blog-card__excerpt {
+	font-size: 13px;
+	margin-top: 3px;
+	color: #666;
+}
+
+// 店舗情報
+.c-store-info {
+
+}
+
+.c-store-info__logo {
+
+	a {
+
+	}
+
+	img {
+		width: 100px;
+	}
+}
+
+.c-store-info__address {
+	margin-top: 40px;
+}
+
+.c-store-info__tel {
+	font-size: 1.3em;
+}
+
+.c-store-info__time {
+	font-size: 12px;
+	margin-top: 8px;
+}
+
+// SNS
+.c-sns {
+	display: flex;
+}
+
+.c-sns__item {
+	padding: 0 8px;
+
+	a {
+		display: inline-block;
+		text-decoration: none;
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			opacity: $opacity;
+		}
+	}
+}
+
+// コピーライト
+.c-copyright {
+	font-size: 12px;
+}
+
+// リスト形式のメニュー
+.c-list-menu {
+	li {
+		margin-bottom: 6px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		a {
+			text-decoration: none;
+			transition: all 0.3s ease 0s;
+
+			&:hover {
+				opacity: $opacity;
+			}
+		}
+	}
+}
+
+// パンくず
+.c-breadcrumb {
+	display: flex;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.c-breadcrumb__item {
+	font-size: 12px;
+
+	&:not(:last-child)::after {
+		content: ">";
+		margin: 0 0.6em;
+		vertical-align: baseline;
+	}
+
+	a {
+		transition: all 0.3s ease 0s;
+		text-decoration: none;
+
+		&:hover {
+			opacity: $opacity;
+		}
+	}
+}
+
+.p-breadcrumb__current {
+
+}
+
+// ボタン
+.c-btn {
+	text-decoration: none;
+	display: inline-block;
+	background-color: #111;
+	color: #fff;
+	text-align: center;
+	padding: 0.4em 1.6em;
+	transition: all 0.3s ease 0s;
+	display: inline-block;
+  background-image: none;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-appearance: none;
+
+	&:hover {
+		opacity: $opacity;
+	}
+}
+
+// タイトル
+.c-title {
+	font-weight: 700;
+	font-size: 20px;
+	position: relative;
+	padding-left: 16px;
+
+	&::before {
+		content: "";
+		height: 1em;
+		width: 3px;
+		background: #666;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+.c-product-title {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.4;
+}
+
+// フォームコントロール
+$color-form-border: #ddd;
+
+.c-input {
+	padding: 0.4em 0.8em;
+	border-radius: 0;
+	background-image: none;
+	background-color: transparent;
+	border: 1px solid $color-form-border;
+	font-family: inherit;
+	font-size: 1em;
+	color: inherit;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	box-shadow: none;
+}
+
+.c-textarea {
+	padding: 0.4em 0.8em;
+	border-radius: 0;
+	background-image: none;
+	background-color: transparent;
+	border: 1px solid $color-form-border;
+	font-family: inherit;
+	font-size: 1em;
+	color: inherit;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	box-shadow: none;
+}
+
+.c-select {
+	padding: 0.4em 2.8em 0.4em 0.8em;
+	border-radius: 0;
+	background-image: none;
+	border: 1px solid $color-form-border;
+	font-family: inherit;
+	font-size: 1em;
+	color: inherit;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+// Facebookウィジェット
+.c-facebook {
+	overflow: hidden;
+}

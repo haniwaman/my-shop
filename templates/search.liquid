@@ -1,0 +1,45 @@
+<div class="l-archive">
+	<div class="l-container">
+
+<div class="l-content">
+	<div class="l-primary">
+		<div class="p-archive p-search">
+			<form class="p-search-form p-search__form" action="/search" method="get" role="search">
+				<input type="search" name="q" value="{{ search.terms | escape }}" class="p-search-form__input c-input">
+				<button type="submit" class="p-search-button c-btn">検索</button>
+			</form>
+			{% paginate search.results by 9 %}
+			<div class="p-archive__items">
+			{% if search.performed %}
+			{% for item in search.results %}
+				<a href="{{ item.url | within: collection }}" class="p-archive__item c-product-item">
+					{% if item.featured_image %}
+					<figure class="c-product-item__image">
+						{{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
+					</figure><!-- /.p-product-item__image -->
+					{% endif %}
+					<div class="c-product-item__body">
+						<div class="c-product-item__title">{{ item.title }}</div>
+						<div class="c-product-item__price">{{ item.price | money }}</div>
+					</div><!-- /.c-product-item__body -->
+				</a><!-- /.p-archive__item -->
+				{% endfor %}
+				{% else %}
+					{% include 'products' %}
+				{% endif %}
+			</div><!-- /.p-archive__items -->
+			{% if paginate.pages > 1 %}
+			<div class="p-pagenation">
+				{{ paginate | default_pagination }}
+			</div>
+			{% endif %}
+			{% endpaginate %}
+		</div><!-- /.p-archive -->
+	</div><!-- /.l-primary -->
+	<div class="l-secondary">
+		{% section "sidebar" %}
+	</div><!-- /.l-secondary -->
+</div><!-- /.l-content -->
+
+</div><!-- /l-container -->
+</section><!-- /l-archive -->

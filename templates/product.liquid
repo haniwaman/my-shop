@@ -1,0 +1,74 @@
+<div class="l-archive">
+	<div class="l-container">
+
+	<div class="p-entry-product">
+		<div class="p-entry-product__left p-product-slide">
+			<div id="product-main-slider" class="swiper-container p-product-slide__main">
+				<div class="swiper-wrapper">
+					{% for image in product.images %}
+					<div class="swiper-slide p-product-sub-sliders">
+						<div class="swiper-slide-cover">
+							<img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div><!-- /product-main-slider -->
+
+			<div id="product-sub-slider" class="swiper-container p-product-slide__sub">
+				<div class="swiper-wrapper p-product-sub-sliders">
+					{% for image in product.images %}
+					<div class="swiper-slide p-product-sub-sliders__image">
+						<div class="swiper-slide-cover">
+							<img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+						</div><!-- /.product-sub-slider -->
+					</div>
+					{% endfor %}
+				</div>
+			</div><!-- /swiper-container -->
+			</div><!-- /.p-entry-product__left -->
+			<div class="p-entry-product__right p-product-body">
+				<h1 class="p-product-body__title c-product-title">{{ product.title }}</h1><!-- /.p-entry__title -->
+				<div class="p-product-body__content p-page-content">
+					{{ product.description }}
+				</div><!-- /.p-page-content -->
+				{% form "product", product %}
+				<div class="p-product-body__form p-product-form">
+					<div class="p-product-form__row">
+						<label for="productSelect" class="p-product-form__label">種類</label>
+						<select name="id" id="productSelect" class="c-select">
+							{% for variant in product.variants %}
+								{% if variant.available %}
+									<option value="{{ variant.id }}">
+										{% if product.has_only_default_variant %}
+										{{ variant.price | money }}
+										{% else %}
+										{{ variant.title }} - {{ variant.price | money }}
+										{% endif %}
+									</option>
+								{% else %}
+									<option disabled="disabled">
+										{{ variant.title }} - 完売
+									</option>
+								{% endif %}
+							{% endfor %}
+							</select>
+						</div><!-- /.p-product-form__row -->
+				</div><!-- /.p-entry__form-item -->
+				<div class="p-product-form__row">
+					<label for="Quantity" class="p-product-form__label">数量</label>
+					<input type="number" id="Quantity" name="quantity" value="1" min="1" class="c-input">
+				</div><!-- /.p-product-form__row -->
+				<div class="p-product-form__submit">
+				{% if product.available %}
+					<button type="submit" name="add" id="AddToCart" class="c-btn">カートに入れる</button>
+				{% else %}
+					<button type="submit" name="add" id="AddToCart" disabled>カートに入れる</button>
+				{% endif %}
+				</div><!-- /.p-entry__form-item -->
+			{% endform %}
+		</div><!-- /.p-entry-product__right -->
+	</div><!-- /.p-entry-product -->
+
+	</div><!-- /l-container -->
+</div><!-- /l-archive -->

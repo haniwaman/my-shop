@@ -1,0 +1,42 @@
+<div class="p-sidebar">
+	<div class="p-sidebar__logo">
+		<a href="/"><img width="{{ section.settings.logo_max_width }}" src="{{ section.settings.logo | img_url }}"></a>
+	</div><!-- /.p-logo -->
+	<ul class="p-side-menu p-sidebar__menu">
+	{% for link in linklists[section.settings.side_link_list].links %}
+		<li><a href="{{ link.url }}">{{ link.title }}<span></span></a></li>
+	{% endfor %}
+	</ul><!-- /.p-side-menu -->
+	<div class="p-sidebar__sns">
+		{% include 'sns' %}
+	</div><!-- /.p-sidebar__sns -->
+</div><!-- /.p-sidebar -->
+
+{% schema %}
+{
+	"name": "サイドバー",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "logo",
+			"label": "ロゴ画像"
+		},
+		{
+			"type": "range",
+			"id": "logo_max_width",
+			"label": "ロゴの幅",
+			"default": 100,
+			"min": 50,
+			"max": 250,
+			"step": 5,
+			"unit": "px"
+		},
+		{
+			"type": "link_list",
+			"id": "side_link_list",
+			"label": "サイドメニュー",
+			"default": "main-menu"
+		}
+	]
+}
+{% endschema %}

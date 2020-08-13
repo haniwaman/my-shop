@@ -1,0 +1,36 @@
+.swiper-container {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	z-index: 1;
+}
+
+.swiper-slide {
+	height: 100%;
+}
+
+.swiper-slide-cover {
+	position: relative;
+  width: 100%;
+	padding-top: 56.25%;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.top-slider {
+	.swiper-button-prev {
+
+	}
+
+	.swiper-button-next {
+
+	}
+}

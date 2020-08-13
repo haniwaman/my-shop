@@ -1,0 +1,46 @@
+<div class="l-top">
+	<div class="l-container">
+
+<div class="l-content">
+	<div class="l-primary">
+		<div class="l-top__slider">
+			{% section "top" %}
+		</div><!-- /.l-top__slider -->
+		<div class="p-news l-top__news">
+		<div class="p-news__title">NEWS</div><!-- /.p-news__title -->
+		<div class="p-news__items">
+		{% for article in blogs.news.articles limit:3 %}
+			<div class="p-news-list p-news__item">
+			<time class="p-news-list__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time><!-- /.p-news-list__date -->
+			<div class="p-news-list__title"><a href="{{ article.url }}">{{ article.title }}</a></div><!-- /.p-news-list__title -->
+			</div><!-- /.p-news-list -->
+		{% endfor %}
+		</div><!-- /.p-news__title -->
+		</div><!-- /.p-news -->
+		<div class="p-archive l-top__archive">
+			<div class="p-archive__title c-title">商品</div><!-- /.p-archive__title -->
+			<div class="p-archive__items">
+			{% for product in collections.frontpage.products limit:12 %}
+				<a href="{{ product.url | within: collection }}" class="p-archive__item c-product-item">
+					<figure class="c-product-item__image">
+						<img src="{{ product.featured_image.src | img_url: 'large' }}" alt="">
+					</figure><!-- /.p-product-item__image -->
+					<div class="c-product-item__body">
+						<div class="c-product-item__title">{{ product.title }}</div>
+						<div class="c-product-item__price">{{ product.price | money }}</div>
+						{% unless product.available %}
+						<div class="c-product-item__sold-out">売り切れ</div>
+						{% endunless %}
+					</div><!-- /.c-product-item__body -->
+				</a><!-- /.p-archive__item -->
+				{% endfor %}
+			</div><!-- /.p-archive__items -->
+		</div><!-- /.p-archive -->
+	</div><!-- /.l-primary -->
+	<div class="l-secondary">
+		{% section "sidebar" %}
+	</div><!-- /.l-secondary -->
+</div><!-- /.l-content -->
+
+</div><!-- /l-container -->
+</section><!-- /l-top -->

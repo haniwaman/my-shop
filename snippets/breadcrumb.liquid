@@ -1,0 +1,37 @@
+{% unless template == 'index' %}
+<div class="p-breadcrumb" role="navigation" aria-label="breadcrumbs">
+<div class="l-container">
+	<div class="c-breadcrumb">
+	<div class="c-breadcrumb__item"><a href="/">Home</a></div>
+  {% if template contains 'page' %}
+		<div class="c-breadcrumb__item"><span class="p-breadcrumb__current">{{ page.title }}</span></div>
+  {% elsif template contains 'product' %}
+    {% if collection.url %}
+			<div class="c-breadcrumb__item">{{ collection.title | link_to: collection.url }}</div>
+    {% endif %}
+		<div class="c-breadcrumb__item"><span class="p-breadcrumb__current">{{ product.title }}</span></div>
+  {% elsif template contains 'collection' and collection.handle %}
+    {% if current_tags %}
+      <div class="c-breadcrumb__item">{% capture url %}/collections/{{ collection.handle }}{% endcapture %}</div>
+			<div class="c-breadcrumb__item">{{ collection.title | link_to: url }}</div>
+			<div class="c-breadcrumb__item"><span class="p-breadcrumb__current">{{ current_tags | join: " + " }}</span></div>
+    {% else %}
+			<div class="c-breadcrumb__item"><span class="p-breadcrumb__current">{{ collection.title }}</span></div>
+    {% endif %}
+  {% elsif template == 'blog' %}
+    {% if current_tags %}
+			<div class="c-breadcrumb__item">{{ blog.title | link_to: blog.url }}</div>
+			<div class="c-breadcrumb__item">><span class="p-breadcrumb__current">{{ current_tags | join: " + " }}</span></div>
+    {% else %}
+		<div class="c-breadcrumb__item">><span class="p-breadcrumb__current">{{ blog.title }}</span></div>
+    {% endif %}
+  {% elsif template == 'article' %}
+    <div class="c-breadcrumb__item">{{ blog.title | link_to: blog.url }}</div>
+    <div class="c-breadcrumb__item">{{ article.title }}</div>
+  {% else %}
+   <div class="c-breadcrumb__item">{{ page_title }}</div>
+  {% endif %}
+</div><!-- /p-breadcrumb -->
+</div><!-- /l-inner -->
+</div><!-- /l-breadcrumb -->
+{% endunless %}

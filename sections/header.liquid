@@ -1,0 +1,46 @@
+<div class="p-header">
+	<div class="l-container p-header__row">
+		<div class="p-header__logo">
+			<a href="/"><img width="{{ section.settings.logo_max_width }}" src="{{ section.settings.logo | img_url }}"></a>
+		</div><!-- /.p-header__logo -->
+
+		<div class="p-header__menu">
+			<ul class="c-navigation">
+			{% for link in linklists[section.settings.header_link_list].links %}
+				<li><a href="{{ link.url }}">{{ link.title }}<span></span></a></li>
+			{% endfor %}
+			</ul><!-- /c-navigation -->
+		</div><!-- /.p-header-menu -->
+
+		<nav class="p-header__cart"><a class="c-btn" href="/cart">買い物かご</a></nav><!-- /p-header-cart -->
+	</div><!-- /.c-container -->
+</div><!-- /.p-header -->
+
+{% schema %}
+{
+	"name": "ヘッダー",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "logo",
+			"label": "ロゴ画像"
+		},
+		{
+			"type": "range",
+			"id": "logo_max_width",
+			"label": "ロゴの幅",
+			"default": 150,
+			"min": 50,
+			"max": 250,
+			"step": 5,
+			"unit": "px"
+		},
+		{
+			"type": "link_list",
+			"id": "header_link_list",
+			"label": "ヘッダーメニュー",
+			"default": "main-menu"
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+<div class="l-archive">
+	<div class="l-container">
+
+<div class="l-content">
+	<div class="l-primary">
+		<div class="p-archive">
+			<div class="p-archive__title c-title">{{ blog.title }}</div><!-- /.p-archive__title -->
+			{% paginate blog.articles by 3 %}
+			<div class="p-archive__items">
+			{% for article in blog.articles %}
+				<a href="{{ article.url }}" class="p-archive__item c-blog-card">
+					<figure class="c-blog-card__image">
+						<img src="{{ article.featured_image.src | img_url: 'large' }}" alt="">
+					</figure><!-- /.p-product-item__image -->
+					<div class="c-blog-card__body">
+						<div class="c-blog-card__title">{{ article.title }}</div>
+						<div class="c-blog-card__excerpt">
+						{% if article.excerpt.size > 0 %}
+							{{ article.excerpt }}
+						{% else %}
+							<p>{{ article.content | strip_html | truncatewords: 30 }}</p>
+						{% endif %}
+						</div>
+					</div><!-- /.c-blog-card__body -->
+				</a><!-- /.p-archive__item -->
+				{% endfor %}
+			</div><!-- /.p-archive__items -->
+			{% if paginate.pages > 1 %}
+			<div class="p-pagenation">
+				{{ paginate | default_pagination }}
+			</div>
+			{% endif %}
+			{% endpaginate %}
+		</div><!-- /.p-archive -->
+	</div><!-- /.l-primary -->
+	<div class="l-secondary">
+		{% section "sidebar" %}
+	</div><!-- /.l-secondary -->
+</div><!-- /.l-content -->
+
+</div><!-- /l-container -->
+</section><!-- /l-archive -->

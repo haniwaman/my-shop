@@ -1,0 +1,49 @@
+<div class="l-cart">
+	<div class="l-container">
+
+<div class="l-content l-content--one-column">
+	<div class="l-primary">
+		<div class="p-page p-cart">
+			<h1 class="p-page__title c-title">カート</h1>
+			{% if cart.item_count > 0 %}
+			<form action="/cart" method="post" novalidate>
+				<div class="p-cart__items">
+				{% for item in cart.items %}
+					<div class="p-cart-item p-cart__item">
+						<a href="{{ item.url }}" class="p-cart-item__img">
+							<img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+						</a><!-- /.p-cart-item__img -->
+						<div class="p-cart-item__body">
+							<div class="p-cart-item__title">{{ item.product.title }}</div><!-- /.p-cart-item__title -->
+							<div class="p-cart-item__meta">
+								<div class="p-cart-update p-cart-item__update">
+									<input class="p-cart-update__number" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+									<button class="p-cart-update__button" type="submit" name="update">更新</button>
+								</div><!-- /.p-cart-update -->
+								<div class="p-cart-item__price">
+								{% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+								{{ item.line_price | money }}
+								{% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+								</div><!-- /p-cart-item__price -->
+							</div><!-- /.p-cart-item__meta -->
+						</div><!-- /.p-cart-item__body -->
+						<div class="p-cart-item__delete">
+							<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="削除"><i class="fas fa-times"></i></a>
+						</div><!-- /.p-cart-item__delete -->
+					</div><!-- /.p-cart-item -->
+				{% endfor %}
+				</div><!-- /.p-cart__items -->
+			<div class="p-cart-total">
+				<div class="p-cart-total__sum">小計：<span>{{ cart.total_price | money }}</span></div>
+				<button type="submit" name="checkout" class="c-btn p-cart-total__button">お会計に進む</button>
+			</div><!-- /.p-cart-total -->
+		</form>
+		{% else %}
+			<p class="p-cart__not-found">カートに商品が存在しません。</p>
+		{% endif %}
+		</div><!-- /.p-archive -->
+	</div><!-- /.l-primary -->
+</div><!-- /.l-content -->
+
+</div><!-- /l-container -->
+</section><!-- /l-cart -->

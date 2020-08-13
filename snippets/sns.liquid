@@ -1,0 +1,17 @@
+<div class="c-sns">
+	{% if settings.sns-instagram != '' %}
+	<div class="c-sns__item">
+		<a href="{{ settings.sns-instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+	</div><!-- /.c-sns__item -->
+	{% endif %}
+	{% if settings.sns-facebook != '' %}
+	<div class="c-sns__item">
+		<a href="{{ settings.sns-facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+	</div><!-- /.c-sns__item -->
+	{% endif %}
+	{% if settings.sns-twitter != '' %}
+	<div class="c-sns__item">
+		<a href="{{ settings.sns-twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+	</div><!-- /.c-sns__item -->
+	{% endif %}
+</div><!-- /c-sns -->

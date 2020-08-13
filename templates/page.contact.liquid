@@ -1,0 +1,42 @@
+<div class="l-page l-page--contact">
+	<div class="l-container">
+
+<div class="l-content">
+	<div class="l-primary">
+		<div class="p-page">
+			<div class="p-page__title c-title">{{ page.title }}</div><!-- /.p-archive__title -->
+			<div class="p-page__content p-page-content">
+				{% form 'contact' %}
+				{% if form.posted_successfully? %}
+				<div class="p-form__message p-form__message--success">送信に成功しました！</div>
+				{% endif %}
+				<div class="p-form">
+					<div class="p-form__row">
+						<div class="p-form__label"><label for="your-name">お名前</label></div>
+						<div class="p-form__control"><input type="text" placeholder="お名前" class="c-input" name="contact[name]" id="your-name"></div>
+					</div><!-- /.p-form__row -->
+
+					<div class="p-form__row">
+						<div class="p-form__label"><label for="your-email">メールアドレス</label></div>
+						<div class="p-form__control"><input type="email" placeholder="メールアドレス" class="c-input" name="contact[email]" id="your-email"></div>
+					</div><!-- /.p-form__row -->
+
+					<div class="p-form__row">
+						<div class="p-form__label"><label for="your-email">お問い合わせ内容</label></div>
+						<div class="p-form__control"><textarea rows="6" placeholder="お問い合わせ内容" class="c-textarea" name="contact[message]" id="message"></textarea></div>
+					</div><!-- /.p-form__row -->
+
+					<div class="p-form__submit"><input type="submit" class="c-btn" value="送信する"></div><!-- /.p-form__submit -->
+
+					</div><!-- /.p-form -->
+				{% endform %}
+			</div><!-- /.p-page__content -->
+		</div><!-- /.p-page -->
+	</div><!-- /.l-primary -->
+	<div class="l-secondary">
+		{% section "sidebar" %}
+	</div><!-- /.l-secondary -->
+</div><!-- /.l-content -->
+
+</div><!-- /l-container -->
+</section><!-- /l-page -->

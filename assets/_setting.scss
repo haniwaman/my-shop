@@ -1,0 +1,16 @@
+// レイアウト幅
+$layout-width-canvas: 1440px;
+$layout-width-inner: 1000px;
+$layout-width-vw: 1000;
+$layout-width-sp: 768px;
+
+// ブレークポイント
+$breakpoints: (
+	"sp": "screen and (max-width: #{$layout-width-sp - 1px})",
+	"tab-only": "(min-width: #{$layout-width-sp}) and (max-width: #{$layout-width-inner - 1px})",
+	"tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+	"pc": "screen and (min-width: #{$layout-width-inner})",
+	"ie": "screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)"
+);
+
+$opacity: 0.7;

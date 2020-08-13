@@ -1,0 +1,31 @@
+<footer class="l-footer p-footer">
+	<div class="l-container">
+	<div class="p-footer__row">
+			<div class="p-footer__left">
+				<div class="c-copyright">{{ section.settings.copyright }}</div><!-- /c-copyright -->
+			</div><!-- /p-footer__left -->
+			<div class="p-footer__right">
+				{% include 'sns' %}
+			</div><!-- /p-footer__right -->
+		</div><!-- /.p-footer__row -->
+	</div><!-- /l-container -->
+</footer>
+
+<div class="c-floating js-floating p-floating">
+	<a href="#" class="">
+		<div class="c-icon-arrow-top"><span></span></div>
+	</a>
+</div>
+
+{% schema %}
+{
+	"name": "フッター",
+	"settings": [
+		{
+			"type": "text",
+			"id": "copyright",
+			"label": "コピーライト"
+		}
+	]
+}
+{% endschema %}

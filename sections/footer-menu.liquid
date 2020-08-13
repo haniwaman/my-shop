@@ -1,0 +1,40 @@
+<div class="p-footer-menu">
+	<div class="l-container">
+	<div class="p-footer-menu__row">
+		<div class="p-footer-menu__left">
+			{{ section.settings.footer-left }}
+		</div><!-- /.p-footer-menu__left -->
+		<div class="p-footer-menu__center">
+			{{ section.settings.footer-center }}
+		</div><!-- /.p-footer-menu__center -->
+		<div class="p-footer-menu__right">
+			{{ section.settings.footer-right }}
+		</div><!-- /.p-footer-menu__right -->
+	</div><!-- /.p-footer-menu__row -->
+
+
+	</div><!-- /l-container -->
+</div><!-- /p-footer-menu -->
+
+{% schema %}
+{
+	"name": "フッターメニュー",
+	"settings": [
+		{
+			"type": "html",
+			"id": "footer-left",
+			"label": "左のエリア"
+		},
+		{
+			"type": "html",
+			"id": "footer-center",
+			"label": "中央のエリア"
+		},
+		{
+			"type": "html",
+			"id": "footer-right",
+			"label": "右のエリア"
+		}
+	]
+}
+{% endschema %}
